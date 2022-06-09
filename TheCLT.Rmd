@@ -1,0 +1,81 @@
+---
+title: "The CLT"
+author: "Precious Calderon"
+date: '2022-06-09'
+output: html_document
+---  
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+require(tidyverse)
+require(lattice)
+```
+
+```{r}
+Homers_data <- read.csv(file="Homers_data.csv")
+my1000 <- sample(Homers_data$kkardashtemp ,size = 1000, replace=T)
+densityplot(my1000,main="original data")
+options(digits = 1)
+
+```
+Describe the resulting plot -  is it unimodal?  How many peaks does it have?  Are all the peaks the same size?   
+  
+The graph above is not unimodal but instead is bimodal due to the two peaks. Furthermore, the two peaks appear to be the same size. The sample mean is `r mean(my1000)`, and the standard deviation is `r sd(my1000)`.   
+      
+  
+  
+Now take 2 random samples of 1000 points of the kkardashtemp variable and form 1000 points of their averages,
+
+```{r}
+numb = 2
+Hdata   <- sample(Homers_data$kkardashtemp ,size = numb*1000, replace=T)
+mdata  <-matrix(Hdata,nrow=1000,ncol=numb)
+x.avg <- apply(mdata,1,mean)
+densityplot(x.avg,main="sample size 2")
+```
+Describe the resulting plot -  is it unimodal?  How many peaks does it have?  Are all the peaks the same size?      
+The resulting plot above is trimodal this time. Three peaks appeared, with the middle peak appearing to be larger than the two side peaks which look about the same size. This is due to increasing the sample size by two. The sample mean is `r mean(x.avg)`, and the standard deviation is `r sd(x.avg)`.  
+  
+```{r}
+numb = 4
+Hdata   <- sample(Homers_data$kkardashtemp ,size = numb*1000, replace=T)
+mdata  <-matrix(Hdata,nrow=1000,ncol=numb)
+x.avg <- apply(mdata,1,mean)
+densityplot(x.avg,main="sample size 4")
+```
+  
+The sample mean is `r mean(x.avg)`, and the standard deviation is `r sd(x.avg)`.  
+  
+    
+```{r}
+numb = 9
+Hdata   <- sample(Homers_data$kkardashtemp ,size = numb*1000, replace=T)
+mdata  <-matrix(Hdata,nrow=1000,ncol=numb)
+x.avg <- apply(mdata,1,mean)
+densityplot(x.avg,main="sample size 9")
+```  
+   
+The sample mean is `r mean(x.avg)`, and the standard deviation is `r sd(x.avg)`.  
+  
+    
+```{r}
+numb = 16
+Hdata   <- sample(Homers_data$kkardashtemp ,size = numb*1000, replace=T)
+mdata  <-matrix(Hdata,nrow=1000,ncol=numb)
+x.avg <- apply(mdata,1,mean)
+densityplot(x.avg,main="sample size 16")
+```  
+  
+The sample mean is `r mean(x.avg)`, and the standard deviation is `r sd(x.avg)`.
+  
+  
+```{r}
+numb = 36
+Hdata   <- sample(Homers_data$kkardashtemp ,size = numb*1000, replace=T)
+mdata  <-matrix(Hdata,nrow=1000,ncol=numb)
+x.avg <- apply(mdata,1,mean)
+densityplot(x.avg,main="sample size 36")
+```  
+  
+The sample mean is `r mean(x.avg)`, and the standard deviation is `r sd(x.avg)`. The plot is starting to appear like a normal standard deviation plot. Standard deviation decreases the more we increase the sample size. 
+  
