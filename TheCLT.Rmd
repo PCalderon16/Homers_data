@@ -33,7 +33,9 @@ mdata  <-matrix(Hdata,nrow=1000,ncol=numb)
 x.avg <- apply(mdata,1,mean)
 densityplot(x.avg,main="sample size 2")
 ```
+  
 Describe the resulting plot -  is it unimodal?  How many peaks does it have?  Are all the peaks the same size?      
+  
 The resulting plot above is trimodal this time. Three peaks appeared, with the middle peak appearing to be larger than the two side peaks which look about the same size. This is due to increasing the sample size by two. The sample mean is `r mean(x.avg)`, and the standard deviation is `r sd(x.avg)`.  
   
 ```{r}
@@ -44,7 +46,7 @@ x.avg <- apply(mdata,1,mean)
 densityplot(x.avg,main="sample size 4")
 ```
   
-The sample mean is `r mean(x.avg)`, and the standard deviation is `r sd(x.avg)`.  
+The sample mean is `r mean(x.avg)`, and the standard deviation is `r sd(x.avg)`. Based on the cetral limit theorem, we can expect that the mean should be about the same value as that of the original data, but the standard deviation would be half of that of the original data. This is satisfied by the standard deviation previously mentioned.     
   
     
 ```{r}
@@ -55,7 +57,7 @@ x.avg <- apply(mdata,1,mean)
 densityplot(x.avg,main="sample size 9")
 ```  
    
-The sample mean is `r mean(x.avg)`, and the standard deviation is `r sd(x.avg)`.  
+The sample mean is `r mean(x.avg)`, and the standard deviation is `r sd(x.avg)`. Since the sample size is increased to 9, the standard deviation is a third of the standard deviation of the original data which again follows the central limit theorem.    
   
     
 ```{r}
@@ -66,7 +68,7 @@ x.avg <- apply(mdata,1,mean)
 densityplot(x.avg,main="sample size 16")
 ```  
   
-The sample mean is `r mean(x.avg)`, and the standard deviation is `r sd(x.avg)`.
+The sample mean is `r mean(x.avg)`, and the standard deviation is `r sd(x.avg)`. This time, with the sample size increased to 16, the standard deviation decreased to a quarter of the standard deviation value of the original data. The mean, on the other hand, is about the same. 
   
   
 ```{r}
@@ -77,5 +79,9 @@ x.avg <- apply(mdata,1,mean)
 densityplot(x.avg,main="sample size 36")
 ```  
   
-The sample mean is `r mean(x.avg)`, and the standard deviation is `r sd(x.avg)`. The plot is starting to appear like a normal standard deviation plot. Standard deviation decreases the more we increase the sample size. 
+The sample mean is `r mean(x.avg)`, and the standard deviation is `r sd(x.avg)`. The plot is starting to appear like a normal standard deviation plot. This is is accordance to the cental limit theorem because standard deviation decreases the more we increase the sample size. 
+  
+  
+## Summary   
+The central limit states if you have a population with mean μ and standard deviation σ and take sufficiently large random samples from the population with replacement , then the distribution of the sample means will be approximately normally distributed. This is proven by the set of random samples and their corresponding plots. We saw that the more we increase the number of sample, the more the sample proportion tend to follow a normal distribution.   
   
